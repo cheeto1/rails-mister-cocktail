@@ -1,8 +1,19 @@
-<h2><%= @cocktail.name %></h2>
-<ul>
-  <% @doses.each do |dose| %>
-    <li><%= dose.ingredient.name %> (<%= dose.description %>)</li>
-  <% end %>
-</ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1><%= @cocktail.name %></h1>
+  </div>
+</div>
 
+<div class="card-product">
+  <div class="card-product-infos text-center">
+    <% @doses.each do |dose| %>
+      <p class="text-center border border-dark"><%= dose.ingredient.name %> (<%= dose.description %>)</p>
+    <% end %>
+  </div>
 
+  <div class="container">
+    <p class="btn btn-primary text-center"> <%= link_to "Back", cocktails_path %></p>
+  </div>
+
+  <%= link_to "Delete", dose_path,  method: :delete, %>
+</div>

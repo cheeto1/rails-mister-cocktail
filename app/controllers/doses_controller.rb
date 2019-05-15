@@ -1,5 +1,6 @@
 class DosesController < ApplicationController
-  # before_action, :dose_params, only: :destroy
+  before_action :dose_params, only: :destroy
+
   def index
     @cocktail = Cocktail.find(params[:cocktail_id])
     @doses = Dose.where(cocktail_id: @cocktail.id)
@@ -16,10 +17,11 @@ class DosesController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @dose.destroy
-  #   redirect_to cocktails_path
-  # end
+  def destroy
+    @cocktail = Cocktail.find(params[:dose])
+    @dose.destroy
+    redirect_to cocktails_path
+  end
 
   private
 

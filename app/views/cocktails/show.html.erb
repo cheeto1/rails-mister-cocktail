@@ -1,12 +1,15 @@
 <h1 class="text-center">Add dose to <%= @cocktail.name %></h1>
 
-<% @cocktail.doses.each do |dose| %>
-  <%= dose.ingredient.name %>
-  <%= dose.description %>
-  <% end %>
-<br>
 
 <div class="container">
+  <div class="text-center">
+    <% @cocktail.doses.each do |dose| %>
+    <%= dose.ingredient.name %>
+    <%= dose.description %>
+    <% end %>
+  </div>
+
+<br>
     <div class="form-inputs">
       <%= simple_form_for [@cocktail, @dose] do|f| %>
       <%= f.input :description %>
@@ -20,6 +23,7 @@
   <br>
   <br>
     <%= link_to "Edit", edit_cocktail_path(@cocktail) %>
-    <%= link_to "Back", cocktails_path %>
+    <%= link_to "Back to home", cocktails_path %>
+    <%= link_to "Delete", dose_path,  method: :delete %>
 </div>
 

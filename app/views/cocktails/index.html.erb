@@ -2,14 +2,11 @@
   <h1 class="text-center">Fancy Cocktails</h1>
 </div>
 
-<div class="card-trip">
-  <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
-  <div class="card-trip-infos">
+<div class="card-product">
     <div>
       <% @cocktails.each do |cocktail| %>
         <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
       <% end %>
     </div>
-    <%= link_to 'New Cocktail', new_cocktail_path %>
-  </div>
 </div>
+
